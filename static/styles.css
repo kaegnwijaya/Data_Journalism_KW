@@ -1,0 +1,59 @@
+
+h1,h2,body,title {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: lightgoldenrodyellow;
+  text-align: center;
+}
+
+svg{
+  border-style: solid;
+  border-width: 1px;
+  color:black;
+  stroke-width: 1px;
+}
+
+.lineMexico{
+  fill:none;
+  stroke:red;
+  stroke-width: 3px;
+}
+
+.lineMexico:hover {
+  stroke: darkred;        
+  stroke-width: 5px;         
+}
+
+.lineUSA{
+  fill:none;
+  stroke:blue;
+  stroke-width: 3px;
+}
+
+.lineUSA:hover {
+  stroke: darkblue;        
+  stroke-width: 5px;         
+}
+
+.lineCanada{
+  fill:none;
+  stroke:green;
+  stroke-width: 3px;
+}
+
+.lineCanada:hover {
+  stroke: darkgreen;        
+  stroke-width: 5px;         
+}
+
+.lineAverage{
+  fill:none;
+  stroke:grey;
+  stroke-width: 3px;
+  stroke-dasharray: 5mm;
+}
+
+.lineAverage:hover{
+  stroke:black;
+  stroke-width:5px;
+}
+
