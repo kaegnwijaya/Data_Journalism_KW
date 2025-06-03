@@ -11,11 +11,13 @@ app = Flask(__name__, static_url_path='', static_folder='static')
 def about():
     f = open("data/data.json", "r")
     
+    return render_template('about.html')
 
-
-
-
-    return render_template('macro.html')
+@app.route('/micro')
+def micro():
+    f = open("data/data.json", "r")
+    
+    return render_template('micro.html')
 
   
 
