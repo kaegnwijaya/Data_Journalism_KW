@@ -15,7 +15,7 @@ def about():
 
 
 
-    return render_template('about.html')
+    return render_template('macro.html')
 
   
 
