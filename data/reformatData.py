@@ -8,7 +8,7 @@ data = {}
 for i in range(0, len(lines)): 
     line = lines[i].strip().split(",")
     year = int(line[0])
-    state = line[1]
+    state = "." + line[1].lower()
     num1 = float(line[2])
     num2 = float(line[3])
 
