@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 550" width="550" height="500">
+
+    {% set max_val = steps[0] %}
+    {% set min_val = steps[-1] - 400%}
+    {% set value_range = max_val - min_val %}
+    {% set chart_top = 10 %}
+    {% set chart_bottom = 530 %}
+    {% set chart_height = chart_bottom - chart_top %}
+
+    {% macro scale_y(value) -%}
+        {{ chart_bottom - ((value - min_val) / value_range) * chart_height }}
+    {%- endmacro %}
+
+    {% if query == "NY" %}
+        <polyline class="stateLine"
+            points="
+            {% for point in ny %}
+                {{ 60 + loop.index0 * 38 }},{{ scale_y(point) }}
+            {% endfor %}
+        "/>
+    {% elif query == "FL" %}
+        <polyline class="stateLine"
+            points="
+            {% for point in fl %}
+                {{ 60 + loop.index0 * 38 }},{{ scale_y(point) }}
+            {% endfor %}
+        "/>
+    {% elif query == "TX" %}
+        <polyline class="stateLine"
+            points="
+            {% for point in fl %}
+                {{ 60 + loop.index0 * 38 }},{{ scale_y(point) }}
+            {% endfor %}
+        "/>
+    {% elif query == "CA" %}
+        <polyline class="stateLine"
+            points="
+            {% for point in fl %}
+                {{ 60 + loop.index0 * 38 }},{{ scale_y(point)}}
+            {% endfor %}
+        "/>
+    {% elif query == "WY" %}
+        <polyline class="stateLine"
+            points="
+            {% for point in fl %}
+                {{ 60 + loop.index0 * 38 }},{{ scale_y(point) }}
+            {% endfor %}
+        "/>
+    {% endif %}
+
+    <polyline class="countryLine"
+        points="
+        {% for point in us %}
+            {{ 60 + loop.index0 * 38 }},{{ scale_y(point) }}
+        {% endfor %}
+    "/>
+
+    <g id="right-ticks">
+        {% for i in range(steps|length) %}
+            {% set y = chart_top + i * (chart_height / (steps|length)) %}
+            <line x1="40" y1="{{ y }}" x2="50" y2="{{ y }}" stroke="black" stroke-width="1"/>
+            <text x="0" y="{{ y + 4 }}" font-size="12" fill="black">{{ steps[i] }}</text>
+        {% endfor %}
+    </g>
+
+    <g id="bottom-ticks">
+        {% set tick_labels = [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023] %}
+        {% for i in range(tick_labels|length) %}
+            {% set x = 60 + i * 38 %}
+            <line x1="{{ x }}" y1="500" x2="{{ x }}" y2="510" stroke="black" stroke-width="1"/>
+            <text x="{{ x - 10 }}" y="524" font-size="10" fill="black">{{ tick_labels[i] }}</text>
+        {% endfor %}
+    </g>
+
+    <text x="400" y="70" stroke = red>Average of Every State</text>
+    <text x="400" y="130" stroke = blue>Average of {{query}}</text>
+
+</svg>

@@ -11,24 +11,24 @@ svg{
   stroke-width: 1px;
 }
 
-.lineMexico{
+.countryLine{
   fill:none;
   stroke:red;
   stroke-width: 3px;
 }
 
-.lineMexico:hover {
+.countryLine:hover {
   stroke: darkred;        
   stroke-width: 5px;         
 }
 
-.lineUSA{
+.stateLine{
   fill:none;
   stroke:blue;
   stroke-width: 3px;
 }
 
-.lineUSA:hover {
+.stateLine:hover {
   stroke: darkblue;        
   stroke-width: 5px;         
 }

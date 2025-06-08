@@ -1,5 +1,5 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" width="959" height="593">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="593">
   <title>Blank map of the United States, territories not included</title>
 <defs>
 <style type="text/css">
@@ -29,8 +29,7 @@ Place this code in the empty space below. */
 
 {% for i in range(0, 500, 50) %}
   <rect width="10" height="50" x="940" y="{{ i+60 }}" fill="hsl(230, 70%, {{100 - i / 5 }}%)" stroke-width="0" />
-
-  <text x="920" y="{{ i+110 }}" font-size="10" stroke-width="2">{{steps[i/5]}}</text>
+  <text x="955" y="{{ i + 90 }}" font-size="10" stroke-width="2">{{(min + diff * i/50) | round(2)}}</text>
 {% endfor %}
 
 <g class="state">
